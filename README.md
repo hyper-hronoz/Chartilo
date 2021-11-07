@@ -181,6 +181,8 @@ The last step:
 
 *This is all have a nice day*
 
+if this is not enougth you can browse crypto-meneger-project [here](https://github.com/seldish-og/Crypto-Manager-Desktop-App)
+
 ## License
 
 MIT
