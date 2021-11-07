@@ -20,7 +20,6 @@ class Chartilo(QWidget):
     def resizeEvent(self, event):
         try:
             amountOnScreen = Limiter.getVertexesAmount(Chartilo.parsedData, VertexesFactory.Type.width, self.painter.device().width(), ChartPositioner.paddingHorizontal) + 1
-            print(Limiter.vertexesOffset // VertexesFactory.Type.width + amountOnScreen, len(Chartilo.data), )
             if (Limiter.vertexesOffset // VertexesFactory.Type.width + amountOnScreen > len(Chartilo.data) ):
                 Limiter.vertexesOffset -= ((Limiter.vertexesOffset // VertexesFactory.Type.width + amountOnScreen) - len(Chartilo.data)) * VertexesFactory.Type.width
 
