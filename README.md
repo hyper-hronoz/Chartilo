@@ -4,7 +4,7 @@
 Chartilo is the open-source library which allow you to draw charts on qtpainter with support for lines, candles, bars or heiken-ashi.
 
 - install library
-- type 6 lines of python code
+- type 17 lines of python code
 - enjoy result
 
 ## Features
@@ -113,7 +113,7 @@ if __name__ == '__main__':
 
 ```
 
-First of all, you must have a qtframe in order to insert a painter there.
+First of all, you must have a qtframe in order to insert a painter there:
 
 ```python
 class MyWidget(QMainWindow):
@@ -129,30 +129,12 @@ class MyWidget(QMainWindow):
 
 ```
 
-Second step is to create setting of library
-
-```python
-# this is how you can import drawers from chartilo library
-from chartilo.drawers import GridDrawer, CandleChartDrawer, LineChartDrawer, LineDrawer, MaxMinValuesDrawer, Drawer
-```
-> Note: `Drawer` is required if you wanna build your own drawer.
-
-
-```python
-# this is how you can import models from chartilo library
-from chartilo.models import Line, Candle
-```
-> Note: `models` is setting the type of vertexes and you can create your own models to draw them in your own drawers using base drawer class for calculation.
-```python
-# this is how you can import themes, the default is Dark
-from chartilo.themes import Light, Dark, Theme
-```
-> Note: `Theme` is required if you wanna create your own theme.
 
 
 
+Second step is to create setting of library:
 
-this is how you can implement drawers, models, themes from chartilo library
+this is how you can implement drawers, models, themes from chartilo library:
 ```python
 		# setting states
 		states = {
@@ -169,6 +151,25 @@ this is how you can implement drawers, models, themes from chartilo library
 > Note: `Type of vertexes and type of vertexes darwer` should be same for proper work.
 > Note: `you can remove some of the classes to get the functionality you want`
 
+
+```python
+# this is how you can import drawers from chartilo library
+from chartilo.drawers import GridDrawer, CandleChartDrawer, LineChartDrawer, LineDrawer, MaxMinValuesDrawer, Drawer
+```
+> Note: `Drawer` is required if you wanna build your own drawer.
+
+
+```python
+# this is how you can import models from chartilo library:
+from chartilo.models import Line, Candle
+```
+> Note: `models` is setting the type of vertexes and you can create your own models to draw them in your own drawers using base drawer class for calculation.
+```python
+# this is how you can import themes, the default is Dark
+from chartilo.themes import Light, Dark, Theme
+```
+> Note: `Theme` is required if you wanna create your own theme.
+
 The last step:
 
 ```python
@@ -178,79 +179,10 @@ The last step:
 		self._chartilo.updateCanvas()
 ```
 
-#### Building for source
-
-For production release:
-
-```sh
-gulp build --prod
-```
-
-Generating pre-built zip archives for distribution:
-
-```sh
-gulp build dist --prod
-```
-
-## Docker
-
-Dillinger is very easy to install and deploy in a Docker container.
-
-By default, the Docker will expose port 8080, so change this within the
-Dockerfile if necessary. When ready, simply use the Dockerfile to
-build the image.
-
-```sh
-cd dillinger
-docker build -t <youruser>/dillinger:${package.json.version} .
-```
-
-This will create the dillinger image and pull in the necessary dependencies.
-Be sure to swap out `${package.json.version}` with the actual
-version of Dillinger.
-
-Once done, run the Docker image and map the port to whatever you wish on
-your host. In this example, we simply map port 8000 of the host to
-port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
-
-```sh
-docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger <youruser>/dillinger:${package.json.version}
-```
-
-> Note: `--capt-add=SYS-ADMIN` is required for PDF rendering.
-
-Verify the deployment by navigating to your server address in
-your preferred browser.
-
-```sh
-127.0.0.1:8000
-```
+*This is all have a nice day*
 
 ## License
 
 MIT
 
 **Free Software, Hell Yeah!**
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-   [dill]: <https://github.com/joemccann/dillinger>
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
-   [node.js]: <http://nodejs.org>
-   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
-   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-   [express]: <http://expressjs.com>
-   [AngularJS]: <http://angularjs.org>
-   [Gulp]: <http://gulpjs.com>
-
-   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
