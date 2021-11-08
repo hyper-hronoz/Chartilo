@@ -21,7 +21,7 @@ class Drawer:
             vertex = vertex.__dict__
 
             for vertex_field in vertex.keys():
-                if (vertex_field == "openTime"):
+                if (vertex_field == "closeTime"):
                     continue
                 if float(vertex.get(vertex_field)) < minimum:
                     minimum = vertex.get(vertex_field)
