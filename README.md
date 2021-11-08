@@ -18,7 +18,7 @@ Chartilo is the open-source library which allow you to draw charts on qtpainter 
 
 Chartilo uses a number of open source projects to work properly:
 
-- [PyQt5](https://pypi.org/project/PyQt5/) - HTML
+- [PyQt5](https://pypi.org/project/PyQt5/) - app build framework
 
 
 And of course Chartilo itself is open source with a [public repository](https://github.com/hyper-hronoz/Chartilo)
@@ -164,6 +164,35 @@ from chartilo.drawers import GridDrawer, CandleChartDrawer, LineChartDrawer, Lin
 from chartilo.models import Line, Candle
 ```
 > Note: `models` is setting the type of vertexes and you can create your own models to draw them in your own drawers using base drawer class for calculation.
+
+this is how line generates
+
+```python
+class Line:
+	width = 8 
+
+	def __init__(self, data):
+		self.closeTime = data[0] # NOT REQUIRED close time
+		self.openPrice = float(data[1]) # open price
+		self.closePrice = float(data[4]) # close price
+```
+
+this is how candle generates
+
+
+```python
+from . import Line
+
+
+class Candle(Line):
+	width = 8 
+
+	def __init__(self, data):
+		super().__init__(data); # open and close price look above
+		self.maximalPrice = float(data[2]) # maximal price
+		self.minimalPrice = float(data[3]) # minimal price
+```
+
 ```python
 # this is how you can import themes, the default is Dark
 from chartilo.themes import Light, Dark, Theme
@@ -178,6 +207,7 @@ The last step:
 		self._chartilo.setStates(states)
 		self._chartilo.updateCanvas()
 ```
+> Note: `data` must be a two-dimensional array [[closeTime, openPrice, maximalPrice, minimalPrice, closePrice], [closeTime, openPrice, maximalPrice, minimalPrice, closePrice]] example [here](https://github.com/hyper-hronoz/test_my_library_yandexlyceum/blob/master/data.txt) another fields are not required yet.
 
 *This is all have a nice day*
 
