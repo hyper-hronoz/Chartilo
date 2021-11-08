@@ -1,6 +1,6 @@
 # Chartilo
 ## _Cool chart drawer for pyqt5 with candle support_
-![alt text](https://ibb.co/fxHLYvW)
+![alt text](https://i.ibb.co/jrDsvRY/image.png)
 
 Chartilo is the open-source library which allow you to draw charts on qtpainter with support for lines, candles, bars or heiken-ashi.
 
